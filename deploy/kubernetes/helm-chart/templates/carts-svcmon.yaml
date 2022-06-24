@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: carts
+  labels:
+    name: carts
+    release: mkdev-wob-101
+spec:
+  namespaceSelector:
+    matchNames:
+    - socks-shop
+  selector:
+    matchLabels:
+      name: carts
+  endpoints:
+  - port: http
