@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: shipping
+  labels:
+    name: shipping
+    release: mkdev-wob-101
+spec:
+  namespaceSelector:
+    matchNames:
+    - socks-shop
+  selector:
+    matchLabels:
+      name: shipping
+  endpoints:
+  - port: http
